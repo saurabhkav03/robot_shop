@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - robot-shop
+  payment:
+    build:
+      context: .
+    image: robotshop/rs-payment
+    ports:
+      - 8080:8080
+    depends_on:
+      - rabbitmq
