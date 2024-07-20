@@ -24,14 +24,15 @@ spec:
           httpGet:
             path: {{ .Values.shipping.path }}
             port: {{ .Values.shipping.port }}
-            initialDelaySeconds: 5
-            periodSeconds: 5
-            failureThreshold: 30
-            successThreshold: 1
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 30
+          successThreshold: 1
         resources:
-            limits:
-                cpu: {{ .Values.shipping.cpu_limits }}
-                memory: {{ .Values.shipping.memory_limits }}
-            requests:
-                cpu: {{ .Values.shipping.cpu_request }}
-                memory: {{ .Values.shipping.memory_request }}
+          limits:
+            cpu: {{ .Values.shipping.cpu_limits }}
+            memory: {{ .Values.shipping.memory_limits }}
+          requests:
+            cpu: {{ .Values.shipping.cpu_request }}
+            memory: {{ .Values.shipping.memory_request }}
+

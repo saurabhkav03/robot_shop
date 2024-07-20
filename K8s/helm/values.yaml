@@ -63,8 +63,8 @@ mongodb:
   port: 27017
   cpu_limits: 200m
   memory_limits: 200Mi
-  memory_request: 100m 
-  cpu_request: 100Mi 
+  cpu_request: 100m 
+  memory_request: 100Mi 
   port_name: mongo 
 
 mysql:
