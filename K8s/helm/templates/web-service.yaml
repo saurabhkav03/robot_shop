@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
+  name: {{ .Values.web.name }}
   labels:
-    service: web
+    service: {{ .Values.web.label }}
 spec:
   ports:
-  - name: http
-    port: 8080
-    targetPort: 8080
+  - name: {{ .Values.web.port_name }}
+    port: {{ .Values.web.port }}
+    targetPort: {{ .Values.web.port }}
   selector:
-    service: web
+    service: {{ .Values.web.label }}
   {{ if .Values.nodeport }}
   type: NodePort
   {{ else }}

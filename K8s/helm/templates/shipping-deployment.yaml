@@ -1,37 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: shipping
+  name: {{ .Values.shipping.name }}
   labels:
-    service: shipping
+    service: {{ .Values.shipping.label }}
 spec:
   selector:
     matchLabels:
-      service: shipping
-  replicas: 1
+      service: {{ .Values.shipping.label }}
+  replicas: {{ .Values.shipping.replicas }}
   template:
     metadata:
       labels:
-        service: shipping
+        service: {{ .Values.shipping.label }}
     spec:
       containers:
-      - name: shipping
+      - name: {{ .Values.shipping.name }}
         image: {{ .Values.image.repo }}/rs-shipping:{{ .Values.image.version }}
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - containerPort: 8080
+        - containerPort: {{ .Values.shipping.port }}
         readinessProbe:
           httpGet:
-            path: /health
-            port: 8080
+            path: {{ .Values.shipping.path }}
+            port: {{ .Values.shipping.port }}
             initialDelaySeconds: 5
             periodSeconds: 5
             failureThreshold: 30
             successThreshold: 1
         resources:
             limits:
-                cpu: 200m
-                memory: 1000Mi
+                cpu: {{ .Values.shipping.cpu_limits }}
+                memory: {{ .Values.shipping.memory_limits }}
             requests:
-                cpu: 100m
-                memory: 500Mi
+                cpu: {{ .Values.shipping.cpu_request }}
+                memory: {{ .Values.shipping.memory_request }}

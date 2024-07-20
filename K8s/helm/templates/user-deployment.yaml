@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: user
+  name: {{ .Values.user.name }}
   labels:
-    service: user
+    service: {{ .Values.user.label }}
 spec:
   selector:
     matchLabels:
-      service: user
+      service: {{ .Values.user.label }}
   replicas: 1
   template:
     metadata:
       labels:
-        service: user
+        service: {{ .Values.user.label }}
     spec:
       containers:
-      - name: user
+      - name: {{ .Values.user.name }}
         image: {{ .Values.image.repo }}/rs-user:{{ .Values.image.version }}
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
           # agent networking access
           - name: INSTANA_AGENT_HOST
@@ -25,11 +25,11 @@ spec:
               fieldRef:
                 fieldPath: status.hostIP
         ports:
-        - containerPort: 8080
+        - containerPort: {{ .Values.user.port }}
         resources:
             limits:
-                cpu: 200m
-                memory: 100Mi
+                cpu: {{ .Values.user.cpu_limits }}
+                memory: {{ .Values.user.memory_limits }}
             requests:
-                cpu: 100m
-                memory: 50Mi
+                cpu: {{ .Values.user.cpu_request }}
+                memory: {{ .Values.user.memory_request }}

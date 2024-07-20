@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: 
   labels:
-    service: mysql
-  name: mysql
+    service: {{ .Values.mysql.label }}
+  name: {{ .Values.mysql.name }}
 spec:
   ports:
-  - port: 3306
-    targetPort: 3306
-    name: mysql
+  - port: {{ .Values.mysql.port }}
+    targetPort: {{ .Values.mysql.port }}
+    name: {{ .Values.mysql.port_name }}
   selector:
-    service: mysql
+    service: {{ .Values.mysql.label }}

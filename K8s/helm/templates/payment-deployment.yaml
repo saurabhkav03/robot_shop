@@ -17,7 +17,7 @@ spec:
       containers:
       - name: payment
         image: {{ .Values.image.repo }}/rs-payment:{{ .Values.image.version }}
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
           - name: INSTANA_AGENT_HOST
             valueFrom:

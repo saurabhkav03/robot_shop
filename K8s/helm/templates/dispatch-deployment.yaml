@@ -1,20 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dispatch
+  name: {{ .Values.dispatch.name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.dispatch.replicas }}
   selector:
     matchLabels:
-      service: dispatch
+      service: {{ .Values.dispatch.label }}
   template:
     metadata:
       labels:
-        service: dispatch
+        service: {{ .Values.dispatch.name }}
     spec:
       containers:
-      - name: dispatch
+      - name: {{ .Values.dispatch.name }}
         image: {{ .Values.image.repo }}/rs-dispatch:{{ .Values.image.version }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}        
         env:
           - name: INSTANA_AGENT_HOST
             valueFrom:
@@ -22,10 +23,9 @@ spec:
                 fieldPath: status.hostIP
         resources:
           limits:
-            memory: "100Mi"
-            cpu: "200m"
+            memory: {{ .Values.dispatch.memory_limits }}
+            cpu: {{ .Values.dispatch.cpu_limits }}
           requests:
-            memory: "50Mi"
-            cpu: "100m"
-        ports:
-        - containerPort: 8080
+            memory: {{ .Values.dispatch.memory_request }}
+            cpu: {{ .Values.dispatch.cpu_request }}
+

@@ -2,12 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    service: mongodb
-  name: mongodb
+    service: {{ .Values.mongodb.label }}
+  name: {{ .Values.mongodb.name }}
 spec:
   selector:
-    service: mongodb
+    service: {{ .Values.mongodb.label }}
   ports:
-  - name: mongodb
-    port: 27017
-    targetPort: 27017
+  - name: {{ .Values.mongodb.port_name }}
+    port: {{ .Values.mongodb.port }}
+    targetPort: {{ .Values.mongodb.port }}

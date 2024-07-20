@@ -1,11 +1,16 @@
+# Registry and repository for Docker images
+# Default is docker/robotshop/image:latest
 image:
   repo: robotshop
   version: latest
+  pullPolicy: IfNotPresent
 
 redis:
   # Storage class to use with redis statefulset.
   storageClassName: standard
 
+# EUM configuration
+# Provide your key and set the endpoint
 eum:
   key: null
   url: https://eum-eu-west-1.instana.io
@@ -19,3 +24,91 @@ payment:
   # Default is https://www.paypal.com
   gateway: null
   #gateway: https://www.worldpay.com
+
+cart:
+  replicas: 1
+  name: cart
+  label: cart 
+  port: 8080
+  cpu_limits: 200m
+  memory_limits: 100Mi
+  cpu_request: 100m 
+  memory_request: 50Mi
+  port_name: http 
+
+catalogue: 
+  replicas: 1
+  name: catalogue
+  label: catalogue
+  port: 8080
+  cpu_limits: 200m
+  memory_limits: 100Mi 
+  cpu_request: 100m 
+  memory_request: 50Mi
+  port_name: http 
+
+dispatch:
+  replicas: 1
+  name: dispatch 
+  label: dispatch
+  cpu_limits: 200m
+  memory_limits: 100Mi 
+  cpu_request: 100m 
+  memory_request: 50Mi
+
+mongodb: 
+  replicas: 1
+  name: mongodb
+  label: mongodb 
+  port: 27017
+  cpu_limits: 200m
+  memory_limits: 200Mi
+  memory_request: 100m 
+  cpu_request: 100Mi 
+  port_name: mongo 
+
+mysql:
+  replicas: 1
+  name: mysql 
+  label: mysql 
+  port: 3306
+  cpu_limits: 200m 
+  memory_limits: 1024Mi
+  cpu_request: 100m 
+  memory_request: 700Mi
+  port_name: mysql 
+
+shipping: 
+  replicas: 1
+  name: shipping
+  label: shipping
+  port: 8080
+  path: /health
+  cpu_limits: 200m 
+  memory_limits: 1000Mi
+  cpu_request: 100m 
+  memory_request: 500Mi
+  port_name: http
+
+user: 
+  replicas: 1
+  name: user
+  label: user
+  port: 8080
+  cpu_limits: 200m 
+  memory_limits: 100Mi
+  cpu_request: 100m 
+  memory_request: 50Mi
+  port_name: http
+
+
+web:
+  replicas: 1
+  name: web
+  label: web 
+  port: 8080
+  cpu_limits: 200m 
+  memory_limits: 100Mi
+  cpu_request: 100m 
+  memory_request: 50Mi
+  port_name: http

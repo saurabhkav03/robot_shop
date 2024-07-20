@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: {{ .Values.mysql.name }}
   labels:
-    service: mysql
+    service: {{ .Values.mysql.label }}
 spec:
   selector:
     matchLabels:
-      service: mysql
-  replicas: 1
+      service: {{ .Values.mysql.label }}
+  replicas: {{ .Values.mysql.replicas }}
   template:
     metadata:
       labels:
-        service: mysql
+        service: {{ .Values.mysql.label }}
     spec:
       containers:
-      - name: mysql
+      - name: {{ .Values.mysql.name }}
         image: "{{ .Values.image.repo }}/rs-mysql-db:{{ .Values.image.version}}"
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - containerPort: 3306
+        - containerPort: {{ .Values.mysql.port }}
         resources:
             limits:
-                cpu: 200m
-                memory: 1024Mi
+                cpu: {{ .Values.mysql.cpu_limits }}
+                memory: {{ .Values.mysql.memory_limits }}
             requests:
-                cpu: 100m
-                memory: 700Mi
+                cpu: {{ .Values.mysql.cpu_request }}
+                memory: {{ .Values.mysql.memory_request }}

@@ -1,33 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: catalogue
+  name: {{ .Values.catalogue.name }}
   labels:
-    service: catalogue
+    service: {{ .Values.catalogue.label }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.catalogue.replicas }}
   selector:
     matchLabels:
-      service: catalogue
+      service: {{ .Values.catalogue.label }}
   template:
     metadata:
       labels:
-        service: catalogue
+        service: {{ .Values.catalogue.label }}
     spec:
       containers:
-      - name: catalogue
+      - name: {{ .Values.catalogue.name }}
         image: {{ .Values.image.repo }}/rs-catalogue:{{ .Values.image.version }}
-        env: 
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
           - name: INSTANA_AGENT_HOST
             valueFrom:
               fieldRef:
                 fieldPath: status.hostIP
         resources:
           limits:
-            memory: "100Mi"
-            cpu: "200m"
+            memory: {{ .Values.catalogue.memory_limits }}
+            cpu: {{ .Values.catalogue.cpu_limits }}
           requests:
-            cpu: "100m"
-            memory: "50Mi"
+            cpu: {{ .Values.catalogue.cpu_request }}
+            memory: {{ .Values.catalogue.memory_request }}
         ports:
-        - containerPort: 8080
+        - containerPort: {{ .Values.catalogue.port }}

@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: web
+  name: {{ .Values.web.name }}
   labels:
-    service: web
+    service: {{ .Values.web.label }}
 spec:
   selector:
     matchLabels:
-      service: web
-  replicas: 1
+      service: {{ .Values.web.label }}
+  replicas: {{ .Values.web.replicas }}
   template:
     metadata:
       labels:
-        service: web
+        service: {{ .Values.web.label }}
     spec:
       containers:
-      - name: web
+      - name: {{ .Values.web.name }}
         image: {{ .Values.image.repo }}/rs-web:{{ .Values.image.version }}
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         {{- if .Values.eum.key }}
         env:
         - name: INSTANA_EUM_KEY
@@ -26,11 +26,11 @@ spec:
           value: {{ .Values.eum.url }}
         {{- end}}
         ports:
-        - containerPort: 8080
+        - containerPort: {{ .Values.web.port }}
         resources:
             limits:
-                cpu: 200m
-                memory: 100Mi
+                cpu: {{ .Values.web.cpu_limits }}
+                memory: {{ .Values.web.memory_limits }}
             requests:
-                cpu: 100m
-                memory: 50Mi
+                cpu: {{ .Values.web.cpu_request }}
+                memory: {{ .Values.web.memory_request }}
