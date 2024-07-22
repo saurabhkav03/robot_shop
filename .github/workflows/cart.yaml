@@ -16,7 +16,7 @@ on:
 jobs:
   cart:
     name: Build and deploy cart microservice
-    runs-on: [self-hosted, linux] # Use a standard runner instead of self-hosted
+    runs-on: ubuntu-latest # Use a standard runner instead of self-hosted
 
     steps:
       - name: Checkout code
@@ -36,5 +36,25 @@ jobs:
       - name: Build and push 
         uses: docker/build-push-action@v6
         with:
+          context: ./Dockerfile
           push: true
-          tags: user/cart:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/cart:latest
+
+  update-newtag-in-helm-chart:
+    runs-on: ubuntu-latest
+
+    needs: push 
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Commit and push changes
+      run: |
+        git config --user.name "Saurabh Kaveri"
+        git config --user.email "kaverisaurabh1998@gmail.com"
+        git add K8s/helm/values.yaml
+        git commit -m "Updated the dockerfile"
+        git push 

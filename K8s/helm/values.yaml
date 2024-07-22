@@ -26,6 +26,8 @@ payment:
   #gateway: https://www.worldpay.com
 
 cart:
+  repo: cart
+  version: latest
   replicas: 1
   name: cart
   label: cart 
