@@ -59,4 +59,3 @@ jobs:
         git add K8s/helm/values.yaml
         git commit -m "Updated the dockerfile"
         git push 
-
