@@ -27,7 +27,7 @@ jobs:
 
       - name: Install Dependencies  # Step to install npm dependencies
         run: npm install 
-        working-directory: cart
+        working-directory: robot-shop/cart/
 
       - name: Login to Docker Hub  # Step to login to Docker Hub
         uses: docker/login-action@v3
