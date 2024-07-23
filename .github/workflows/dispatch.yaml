@@ -1,5 +1,6 @@
-#test
-name: dispatch
+#test  # Optional: Workflow name/comment for identification
+
+name: dispatch  # Name of the workflow
 
 on:
   push:
@@ -17,35 +18,37 @@ on:
 
 jobs:
   dispatch:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Runs on Ubuntu latest version
 
     steps:
     - name: Set up Go environment
-      uses: actions/setup-go@v5
+      uses: actions/setup-go@v5  # Use setup-go action version 5
       with:
-        go-version: ^1.13.1
-      id: go
+        go-version: ^1.13.1  # Specify Go version range
+      id: go  # ID for this step, can be referenced later
 
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4  # Checkout the repository with full history
       with:
         fetch-depth: 0  # Fetch all history for accurate versioning
 
     - name: Install Dependencies
-      run: go mod download
-      working-directory: dispatch  # Run go mod download in the dispatch directory
+      run: |
+        go mod init dispatch && go get
+        go install
+      working-directory: dispatch  # Run go mod commands in the dispatch directory
 
     - name: Docker Build
-      uses: docker/setup-buildx-action@v3
+      uses: docker/setup-buildx-action@v3  # Set up Docker Buildx
 
     - name: Login to Docker Hub
-      uses: docker/login-action@v3
+      uses: docker/login-action@v3  # Login to Docker Hub with credentials from secrets
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Build and push 
-      uses: docker/build-push-action@v6
+      uses: docker/build-push-action@v6  # Build and push Docker image
       with:
         context: .  # Build context is the root directory
         file: dispatch/Dockerfile  # Path to the Dockerfile within the dispatch directory
@@ -53,19 +56,19 @@ jobs:
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/dispatch:{{ github.run_id }}  # Docker image tag with GitHub run ID
 
   update-newtag-in-helm-chart:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Run on Ubuntu latest version
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # Checkout the repository with full history
         with:
           token: ${{ secrets.TOKEN }}  # Use token for repository access
 
       - name: Update new tag in values yaml file
         run: |
-          git config --global user.name "Saurabh Kaveri"
-          git config --global user.email "kaverisaurabh1998@gmail.com"
+          git config --global user.name "Saurabh Kaveri"  # Set Git user name globally
+          git config --global user.email "kaverisaurabh1998@gmail.com"  # Set Git user email globally
           sed -i 's/version: .*/version: "{{ github.run_id }}"/' K8s/helm/values.yaml  # Update version in Helm values.yaml using GitHub run ID
-          git add K8s/helm/values.yaml
-          git commit -m "Updated the tag in values file"
+          git add K8s/helm/values.yaml  # Stage changes to values.yaml
+          git commit -m "Updated the tag in values file"  # Commit changes
           git push origin main  # Push changes to the main branch
