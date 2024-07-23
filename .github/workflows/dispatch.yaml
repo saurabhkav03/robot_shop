@@ -55,6 +55,7 @@ jobs:
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest  # Run on Ubuntu latest version
+    needs: dispatch
 
     steps:
       - name: Checkout repository

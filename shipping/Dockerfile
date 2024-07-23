@@ -4,11 +4,11 @@ RUN apt update && apt-get install maven -y
 #Set working directory
 WORKDIR /opt/shipping
 
-COPY pom.xml /opt/shipping/
+COPY shipping/pom.xml /opt/shipping/
 #Download all the dependencies as per the pom.xml file
 RUN mvn dependency:resolve
 # Copy the application source code
-COPY src /opt/shipping/src
+COPY shipping/src /opt/shipping/src
 # Build the application
 RUN mvn package
 
