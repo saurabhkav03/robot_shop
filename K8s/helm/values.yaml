@@ -51,7 +51,7 @@ catalogue:
 
 dispatch:
   repo: kaveri03
-  version: latest
+  version: "{{ github.run_id }}"
   replicas: 1
   name: dispatch 
   label: dispatch
