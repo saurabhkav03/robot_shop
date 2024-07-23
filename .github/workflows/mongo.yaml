@@ -29,7 +29,9 @@ jobs:
           fetch-depth: 0
 
       - name: Install dependencies
-        run: npm install 
+        run: |
+          npm install mongodb
+          cp mongo/*.js /docker-entrypoint-initdb.d/
         working-directory: mongo 
 
       - name: Set up Docker Buildx
