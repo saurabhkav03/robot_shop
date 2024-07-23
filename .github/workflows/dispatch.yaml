@@ -66,7 +66,7 @@ jobs:
         run: |
           git config --global user.name "Saurabh Kaveri"  # Set Git user name globally
           git config --global user.email "kaverisaurabh1998@gmail.com"  # Set Git user email globally
-          sed -i 's/version: .*/version: "{{ github.run_id }}"/' K8s/helm/values.yaml  # Update version in Helm values.yaml using GitHub run ID
+          sed -i 's/version: .*/version: "${{ github.run_id }}"/' K8s/helm/values.yaml  # Update version in Helm values.yaml using GitHub run ID
           git add K8s/helm/values.yaml  # Stage changes to values.yaml
           git commit -m "Updated the tag in values file"  # Commit changes
           git push origin main  # Push changes to the main branch
