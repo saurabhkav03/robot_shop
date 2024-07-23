@@ -55,10 +55,10 @@ jobs:
 
       - name: Update Helm chart values
         run: |
-          git config --global user.name "Saurabh Kaveri"
-          git config --global user.email "kaverisaurabh1998@gmail.com"
-          # Update the Docker image tag in the Helm chart values file
-          sed -i 's/tag:.*/tag: latest/' K8s/helm/values.yaml
+          git config user.name "Saurabh Kaveri"
+          git config user.email "kaverisaurabh1998@gmail.com"
+          # Update the Docker image version in the Helm chart values file
+          sed -i 's/version:.*/version: latest/' K8s/helm/values.yaml
           git add K8s/helm/values.yaml
-          git commit -m "Updated the Docker image tag in Helm chart"
+          git commit -m "Updated the Docker image version in Helm chart"
           git push origin main # Ensure you push to the correct branch
