@@ -37,6 +37,8 @@ cart:
   port_name: http 
 
 catalogue: 
+  repo: kaveri03
+  version: latest
   replicas: 1
   name: catalogue
   label: catalogue
