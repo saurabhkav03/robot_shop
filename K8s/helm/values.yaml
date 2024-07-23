@@ -19,7 +19,7 @@ nodeport: false
 
 payment:
   repo: kaveri03
-  version: "10054437553"
+  version: "10055528515"
   # Alternative payment gateway URL
   # Default is https://www.paypal.com
   gateway: null
@@ -27,7 +27,7 @@ payment:
 
 cart:
   repo: kaveri03
-  version: "10054437553"
+  version: "10055528515"
   replicas: 1
   name: cart
   label: cart 
@@ -40,7 +40,7 @@ cart:
 
 catalogue: 
   repo: kaveri03
-  version: "10054437553"
+  version: "10055528515"
   replicas: 1
   name: catalogue
   label: catalogue
@@ -53,7 +53,7 @@ catalogue:
 
 dispatch:
   repo: kaveri03
-  version: "10054437553"
+  version: "10055528515"
   replicas: 1
   name: dispatch 
   label: dispatch
