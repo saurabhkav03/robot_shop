@@ -25,7 +25,7 @@ payment:
 
 cart:
   repo: kaveri03
-  version: latest
+  version: "10052643843"
   replicas: 1
   name: cart
   label: cart 
