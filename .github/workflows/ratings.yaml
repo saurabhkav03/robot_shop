@@ -44,6 +44,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
+          context: .
+          file: ratings/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/ratings:${{ github.run_id }}
 
