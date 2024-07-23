@@ -1,5 +1,3 @@
-#Github actions CI
-
 name: cart
 
 on:
