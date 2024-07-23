@@ -53,7 +53,7 @@ jobs:
         context: .  # Build context is the root directory
         file: dispatch/Dockerfile  # Path to the Dockerfile within the dispatch directory
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/dispatch:{{github.run_id}}  # Docker image tag with GitHub run ID
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/dispatch:${{ github.run_id }}  # Docker image tag with GitHub run ID
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest  # Run on Ubuntu latest version
