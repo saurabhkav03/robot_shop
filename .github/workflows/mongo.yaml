@@ -7,6 +7,12 @@ on:
     paths:
       - '**.js'
       - '.github/workflows/mongo.yaml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**.js'
+      - '.github/workflows/mongo.yaml'
 
 jobs:
   mongo:
