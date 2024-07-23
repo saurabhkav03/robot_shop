@@ -12,7 +12,7 @@ RUN a2enmod rewrite && a2enmod status
 
 WORKDIR /var/www/html
 
-COPY html/ .
+COPY ratings/html/ .
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN composer install
