@@ -2,7 +2,7 @@ FROM golang
 
 WORKDIR /go/src/app
 
-COPY dispatch.go /go/src/app
+COPY dispatch/main.go /go/src/app
 
 #This line initializes a new Go module named dispatch in the working directory. The go mod init dispatch command creates a go.mod file, which is the file that defines the module's dependencies.
 #The && go get part of the command fetches the necessary dependencies for the module. 
