@@ -15,36 +15,44 @@ on:
       - .github/workflows/mongo.yaml
 
 jobs:
-  mongo:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x]
+        mongodb-version: ['6.0', '7.0', '8.0']
+
     steps:
-      - name: Configure nodejs
+      - name: Git checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 'latest'
+          node-version: ${{ matrix.node-version }}
 
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.11.0
         with:
-          fetch-depth: 0
+          mongodb-version: ${{ matrix.mongodb-version }}
 
       - name: Install dependencies
         run: |
           npm install mongodb
-          sudo cp -fr users.js /docker-entrypoint-initdb.d/
-          sudo cp -fr catalogue.js /docker-entrypoint-initdb.d/
-        working-directory: mongo 
+          sudo mkdir -p /docker-entrypoint-initdb.d/
+          sudo cp -fr mongo/users.js /docker-entrypoint-initdb.d/
+          sudo cp -fr mongo/catalogue.js /docker-entrypoint-initdb.d/
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-      -
-        name: Login to Docker Hub
+
+      - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
+
+      - name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -54,7 +62,7 @@ jobs:
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest
-    needs: mongo
+    needs: build
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
