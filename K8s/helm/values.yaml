@@ -25,7 +25,7 @@ payment:
 
 cart:
   repo: kaveri03
-  version: "{{github.run_id}}"
+  version: "{{ github.run_id }}"
   replicas: 1
   name: cart
   label: cart 
@@ -38,7 +38,7 @@ cart:
 
 catalogue: 
   repo: kaveri03
-  version: "{{github.run_id}}"
+  version: "{{ github.run_id }}"
   replicas: 1
   name: catalogue
   label: catalogue
@@ -51,7 +51,7 @@ catalogue:
 
 dispatch:
   repo: kaveri03
-  version: "{{github.run_id}}"
+  version: "{{ github.run_id }}"
   replicas: 1
   name: dispatch 
   label: dispatch
