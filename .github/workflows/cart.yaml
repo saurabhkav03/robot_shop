@@ -38,7 +38,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: robot_shop/cart/Dockerfile # Ensure the context is correct
+          context: . # Ensure the context is correct
+          file: cart/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/cart:latest
 
