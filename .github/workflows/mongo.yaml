@@ -31,8 +31,8 @@ jobs:
       - name: Install dependencies
         run: |
           npm install mongodb
-          cp -fr mongo/users.js /docker-entrypoint-initdb.d/
-          cp -fr mongo/catalogue.js /docker-entrypoint-initdb.d/
+          cp -fr users.js /docker-entrypoint-initdb.d/
+          cp -fr catalogue.js /docker-entrypoint-initdb.d/
         working-directory: mongo 
 
       - name: Set up Docker Buildx
