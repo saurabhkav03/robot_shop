@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.user.name }}
-        image: {{ .Values.image.repo }}/rs-user:{{ .Values.image.version }}
+        image: {{ .Values.user.repo }}/user:{{ .Values.user.version }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
           # agent networking access
