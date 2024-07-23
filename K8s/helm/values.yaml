@@ -50,6 +50,8 @@ catalogue:
   port_name: http 
 
 dispatch:
+  repo: kaveri03
+  version: latest
   replicas: 1
   name: dispatch 
   label: dispatch
