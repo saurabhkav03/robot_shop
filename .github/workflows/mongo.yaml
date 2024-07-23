@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - '**.js'
-      - .github/workflows/mongo.yaml
+      - '.github/workflows/mongo.yaml'
 
 jobs:
   mongo:
