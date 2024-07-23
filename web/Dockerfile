@@ -7,9 +7,8 @@ ENV CATALOGUE_HOST=catalogue \
     PAYMENT_HOST=payment \
     RATINGS_HOST=ratings
 
-COPY default.conf.template /etc/nginx/conf.d/default.conf.template
-COPY static /usr/share/nginx/html
+COPY web/default.conf.template /etc/nginx/conf.d/default.conf.template
+COPY web/static /usr/share/nginx/html
 
 
 EXPOSE 8080
-
