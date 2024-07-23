@@ -18,6 +18,8 @@ eum:
 nodeport: false
 
 payment:
+  repo: kaveri03
+  version: "10054437553"
   # Alternative payment gateway URL
   # Default is https://www.paypal.com
   gateway: null

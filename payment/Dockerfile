@@ -6,7 +6,7 @@ ENV INSTANA_SERVICE_NAME=payment
 
 WORKDIR /app
 
-COPY requirements.txt /app
+COPY payment/requirements.txt /app
 
 RUN python -m pip install -r requirements.txt
 
