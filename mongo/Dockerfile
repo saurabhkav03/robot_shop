@@ -1,5 +1,5 @@
 FROM mongo
 
-COPY *.js /docker-entrypoint-initdb.d/
+COPY mongo/*.js /docker-entrypoint-initdb.d/
 
 CMD [ "mongod" ]
