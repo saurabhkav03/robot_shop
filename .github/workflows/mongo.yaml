@@ -38,10 +38,11 @@ jobs:
 
       - name: Install dependencies
         run: |
+          sudo mkdir -p /docker-entrypoint-initdb.d/
           sudo cp -fr mongo/users.js /docker-entrypoint-initdb.d/
           sudo cp -fr mongo/catalogue.js /docker-entrypoint-initdb.d/
 #          npm install mongodb
-#          sudo mkdir -p /docker-entrypoint-initdb.d/
+
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
