@@ -27,9 +27,9 @@ jobs:
         with:
           mysql-version: "8.0"
 
-      # - name: Set executable permissions for config.sh
-      #   run: |
-      #     chmod +x mysql/config.sh
+      - name: Set executable permissions for config.sh
+        run: |
+          chmod +x mysql/config.sh
   
       - name: Install dependencies
         run: |
