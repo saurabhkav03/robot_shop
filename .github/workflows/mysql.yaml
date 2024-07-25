@@ -29,8 +29,6 @@ jobs:
   
       - name: Install dependencies
         run: |
-          sudo cp mysql/config.sh /root/
-          sudo /root/config.sh 
           sudo mkdir -p /docker-entrypoint-initdb.d/
           sudo cp -fr mysql/scripts/* /docker-entrypoint-initdb.d/
 
