@@ -76,6 +76,8 @@ mongodb:
   port_name: mongo 
 
 mysql:
+  repo: kaveri03
+  version: "10061214190"
   replicas: 1
   name: mysql 
   label: mysql 
@@ -115,6 +117,8 @@ user:
 
 
 web:
+  repo: kaveri03
+  version: "10061214190"
   replicas: 1
   name: web
   label: web 

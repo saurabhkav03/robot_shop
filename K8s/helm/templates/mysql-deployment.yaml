@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.mysql.name }}
-        image: "{{ .Values.image.repo }}/rs-mysql-db:{{ .Values.image.version}}"
+        image: "{{ .Values.mysql.repo }}/mysql-db:{{ .Values.mysql.version}}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: {{ .Values.mysql.port }}
