@@ -4,7 +4,7 @@ image:
   repo: kaveri03
 
 #  version: latest
-  version: v1
+  version: latest
   pullPolicy: IfNotPresent
 
 redis:
