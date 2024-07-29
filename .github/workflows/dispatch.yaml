@@ -71,3 +71,5 @@ jobs:
           git add K8s/helm/values.yaml  # Stage changes to values.yaml
           git commit -m "Updated the tag in values file"  # Commit changes
           git push origin main  # Push changes to the main branch
+
+#test

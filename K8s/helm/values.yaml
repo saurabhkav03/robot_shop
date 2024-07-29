@@ -1,6 +1,8 @@
 # Registry and repository for Docker images
 # Default is docker/robotshop/image:latest
 image:
+  repo: kaveri03
+  version: latest
   pullPolicy: IfNotPresent
 
 redis:

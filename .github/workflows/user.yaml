@@ -42,7 +42,7 @@ jobs:
           context: .
           file: user/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/app:${{ github.run_id }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/user:${{ github.run_id }}
   
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest
