@@ -63,4 +63,3 @@ jobs:
           git commit -m "Updated the Docker image version in Helm chart"
           git push origin main # Ensure you push to the correct branch
 # sed -i 's/version: .*/version: "${{github.run_id}}"/' K8s/helm/values.yaml    
-#test
