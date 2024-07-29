@@ -2,7 +2,7 @@
 # Default is docker/robotshop/image:latest
 image:
   repo: kaveri03
-  version: "10145971939"
+  version: "10146013485"
   pullPolicy: IfNotPresent
 
 redis:
@@ -21,7 +21,7 @@ nodeport: false
 
 payment:
   repo: kaveri03
-  version: "10145971939"
+  version: "10146013485"
   # Alternative payment gateway URL
   # Default is https://www.paypal.com
   gateway: null
@@ -29,7 +29,7 @@ payment:
 
 cart:
   repo: kaveri03
-  version: "10145971939"
+  version: "10146013485"
   replicas: 1
   name: cart
   label: cart 
@@ -42,7 +42,7 @@ cart:
 
 catalogue: 
   repo: kaveri03
-  version: "10145971939"
+  version: "10146013485"
   replicas: 1
   name: catalogue
   label: catalogue
@@ -55,7 +55,7 @@ catalogue:
 
 dispatch:
   repo: kaveri03
-  version: "10145971939"
+  version: "10146013485"
   replicas: 1
   name: dispatch 
   label: dispatch
@@ -66,7 +66,7 @@ dispatch:
 
 mongodb: 
   repo: kaveri03
-  version: "10145971939"
+  version: "10146013485"
   replicas: 1
   name: mongodb
   label: mongodb 
@@ -79,7 +79,7 @@ mongodb:
 
 mysql:
   repo: kaveri03
-  version: "10145971939"
+  version: "10146013485"
   replicas: 1
   name: mysql 
   label: mysql 
@@ -92,7 +92,7 @@ mysql:
 
 shipping: 
   repo: kaveri03
-  version: "10145971939"
+  version: "10146013485"
   replicas: 1
   name: shipping
   label: shipping
@@ -106,7 +106,7 @@ shipping:
 
 user: 
   repo: kaveri03
-  version: "10145971939"
+  version: "10146013485"
   replicas: 1
   name: user
   label: user
@@ -120,7 +120,7 @@ user:
 
 web:
   repo: kaveri03
-  version: "10145971939"
+  version: "10146013485"
   replicas: 1
   name: web
   label: web 
