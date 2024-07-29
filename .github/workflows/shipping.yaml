@@ -50,7 +50,7 @@ jobs:
           context: .  # Build context is the root directory
           file: shipping/Dockerfile  # Path to the Dockerfile within the shipping directory
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/shipping:${{ github.run_id }}  # Docker image tag with GitHub run ID
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/shipping:latest #${{ github.run_id }}  Docker image tag with GitHub run ID
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest  # Runs on Ubuntu latest version
@@ -66,7 +66,8 @@ jobs:
         run: |
           git config --global user.name "Saurabh Kaveri"  # Set Git user name globally
           git config --global user.email "kaverisaurabh1998@gmail.com"  # Set Git user email globally
-          sed -i 's/version: .*/version: "${{ github.run_id }}"/' K8s/helm/values.yaml  # Update version in Helm values.yaml using GitHub run ID
+          sed -i 's/version: .*/version: latest/' K8s/helm/values.yaml
           git add K8s/helm/values.yaml  # Stage changes to values.yaml
           git commit -m "Update the values file"  # Commit changes
           git push origin main  # Push changes to the main branch
+#          sed -i 's/version: .*/version: "${{ github.run_id }}"/' K8s/helm/values.yaml  # Update version in Helm values.yaml using GitHub run ID

@@ -41,7 +41,7 @@ jobs:
           context: . # Ensure the context is correct
           file: cart/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/cart:${{ github.run_id }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/cart:latest #${{ github.run_id }}
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest
@@ -58,7 +58,8 @@ jobs:
           git config user.name "Saurabh Kaveri"
           git config user.email "kaverisaurabh1998@gmail.com"
           #Update the Docker image version in the Helm chart values file
-          sed -i 's/version: .*/version: "${{github.run_id}}"/' K8s/helm/values.yaml    
+          sed -i 's/version: .*/version: latest/' K8s/helm/values.yaml
           git add K8s/helm/values.yaml
           git commit -m "Updated the Docker image version in Helm chart"
           git push origin main # Ensure you push to the correct branch
+# sed -i 's/version: .*/version: "${{github.run_id}}"/' K8s/helm/values.yaml    

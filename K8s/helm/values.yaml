@@ -2,7 +2,8 @@
 # Default is docker/robotshop/image:latest
 image:
   repo: kaveri03
-  version: "{{ github.run_id }}"
+#  version: "{{ github.run_id }}"
+  version: latest
   pullPolicy: IfNotPresent
 
 redis:
@@ -20,16 +21,16 @@ eum:
 nodeport: false
 
 payment:
-  repo: kaveri03
-  version: "{{ github.run_id }}"
+#  repo: kaveri03
+#  version: "{{ github.run_id }}"
   # Alternative payment gateway URL
   # Default is https://www.paypal.com
   gateway: null
   #gateway: https://www.worldpay.com
 
 cart:
-  repo: kaveri03
-  version: "{{ github.run_id }}"
+#  repo: kaveri03
+#  version: "{{ github.run_id }}"
   replicas: 1
   name: cart
   label: cart 
@@ -41,8 +42,8 @@ cart:
   port_name: http 
 
 catalogue: 
-  repo: kaveri03
-  version: "{{ github.run_id }}"
+#  repo: kaveri03
+#  version: "{{ github.run_id }}"
   replicas: 1
   name: catalogue
   label: catalogue
@@ -54,8 +55,8 @@ catalogue:
   port_name: http 
 
 dispatch:
-  repo: kaveri03
-  version: "{{ github.run_id }}"
+#  repo: kaveri03
+#  version: "{{ github.run_id }}"
   replicas: 1
   name: dispatch 
   label: dispatch
@@ -65,8 +66,8 @@ dispatch:
   memory_request: 50Mi
 
 mongodb: 
-  repo: kaveri03
-  version: "{{ github.run_id }}"
+#  repo: kaveri03
+#  version: "{{ github.run_id }}"
   replicas: 1
   name: mongodb
   label: mongodb 
@@ -78,8 +79,8 @@ mongodb:
   port_name: mongo 
 
 mysql:
-  repo: kaveri03
-  version: "{{ github.run_id }}"
+#  repo: kaveri03
+#  version: "{{ github.run_id }}"
   replicas: 1
   name: mysql 
   label: mysql 
@@ -91,8 +92,8 @@ mysql:
   port_name: mysql 
 
 shipping: 
-  repo: kaveri03
-  version: "{{ github.run_id }}"
+#  repo: kaveri03
+#  version: "{{ github.run_id }}"
   replicas: 1
   name: shipping
   label: shipping
@@ -105,8 +106,8 @@ shipping:
   port_name: http
 
 user: 
-  repo: kaveri03
-  version: "{{ github.run_id }}"
+#  repo: kaveri03
+#  version: "{{ github.run_id }}"
   replicas: 1
   name: user
   label: user
@@ -119,8 +120,8 @@ user:
 
 
 web:
-  repo: kaveri03
-  version: "{{ github.run_id }}"
+#  repo: kaveri03
+#  version: "{{ github.run_id }}"
   replicas: 1
   name: web
   label: web 
