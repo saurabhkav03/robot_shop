@@ -2,6 +2,7 @@
 # Default is docker/robotshop/image:latest
 image:
   repo: kaveri03
+
 #  version: "{{ github.run_id }}"
   version: latest
   pullPolicy: IfNotPresent
@@ -23,6 +24,7 @@ nodeport: false
 payment:
 #  repo: kaveri03
 #  version: "{{ github.run_id }}"
+
   # Alternative payment gateway URL
   # Default is https://www.paypal.com
   gateway: null
@@ -44,6 +46,7 @@ cart:
 catalogue: 
 #  repo: kaveri03
 #  version: "{{ github.run_id }}"
+
   replicas: 1
   name: catalogue
   label: catalogue
@@ -57,6 +60,7 @@ catalogue:
 dispatch:
 #  repo: kaveri03
 #  version: "{{ github.run_id }}"
+
   replicas: 1
   name: dispatch 
   label: dispatch
@@ -66,8 +70,10 @@ dispatch:
   memory_request: 50Mi
 
 mongodb: 
+
 #  repo: kaveri03
 #  version: "{{ github.run_id }}"
+
   replicas: 1
   name: mongodb
   label: mongodb 
@@ -81,6 +87,7 @@ mongodb:
 mysql:
 #  repo: kaveri03
 #  version: "{{ github.run_id }}"
+
   replicas: 1
   name: mysql 
   label: mysql 
@@ -94,6 +101,7 @@ mysql:
 shipping: 
 #  repo: kaveri03
 #  version: "{{ github.run_id }}"
+
   replicas: 1
   name: shipping
   label: shipping
@@ -108,6 +116,7 @@ shipping:
 user: 
 #  repo: kaveri03
 #  version: "{{ github.run_id }}"
+
   replicas: 1
   name: user
   label: user
@@ -122,6 +131,7 @@ user:
 web:
 #  repo: kaveri03
 #  version: "{{ github.run_id }}"
+
   replicas: 1
   name: web
   label: web 
