@@ -71,7 +71,7 @@ dispatch:
 
 mongodb: 
   repo: kaveri03
-  mongodb_version: "10155436866"
+  mongodb_version: "10157734250"
   replicas: 1
   name: mongodb
   label: mongodb 
