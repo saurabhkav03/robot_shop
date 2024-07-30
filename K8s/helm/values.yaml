@@ -56,14 +56,8 @@ catalogue:
   port_name: http 
 
 dispatch:
-<<<<<<< Updated upstream
-#  repo: kaveri03
-#  version: "10155355595"
-
-=======
   repo: kaveri03
   version: "10155355595"
->>>>>>> Stashed changes
   replicas: 1
   name: dispatch 
   label: dispatch
