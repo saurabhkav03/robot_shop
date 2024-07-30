@@ -3,7 +3,7 @@
 image:
 #  repo: kaveri03
 
-#  version: "10155436866"
+#  version: "10155481545"
   pullPolicy: IfNotPresent
 
 redis:
@@ -22,7 +22,7 @@ nodeport: false
 
 payment:
 #  repo: kaveri03
-#  version: "10155436866"
+#  version: "10155481545"
 
   # Alternative payment gateway URL
   # Default is https://www.paypal.com
@@ -31,7 +31,7 @@ payment:
 
 cart:
   repo: kaveri03
-  version: "10155436866"
+  version: "10155481545"
   replicas: 1
   name: cart
   label: cart 
@@ -44,7 +44,7 @@ cart:
 
 catalogue: 
   repo: kaveri03
-  version: "10155436866"
+  version: "10155481545"
   replicas: 1
   name: catalogue
   label: catalogue
@@ -57,7 +57,7 @@ catalogue:
 
 dispatch:
   repo: kaveri03
-  version: "10155436866"
+  version: "10155481545"
   replicas: 1
   name: dispatch 
   label: dispatch
@@ -68,7 +68,7 @@ dispatch:
 
 mongodb: 
   repo: kaveri03
-  version: "10155436866"
+  version: "10155481545"
   replicas: 1
   name: mongodb
   label: mongodb 
@@ -81,7 +81,7 @@ mongodb:
 
 mysql:
   repo: kaveri03
-  version: "10155355595"
+  version: "10155481545"
   replicas: 1
   name: mysql 
   label: mysql 
@@ -94,7 +94,7 @@ mysql:
 
 shipping: 
 #  repo: kaveri03
-#  version: "10155436866"
+#  version: "10155481545"
 
   replicas: 1
   name: shipping
@@ -109,7 +109,7 @@ shipping:
 
 user: 
 #  repo: kaveri03
-#  version: "10155436866"
+#  version: "10155481545"
 
   replicas: 1
   name: user
@@ -124,7 +124,7 @@ user:
 
 web:
 #  repo: kaveri03
-#  version: "10155436866"
+#  version: "10155481545"
 
   replicas: 1
   name: web
