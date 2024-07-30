@@ -110,9 +110,8 @@ shipping:
   port_name: http
 
 user: 
-#  repo: kaveri03
-#  version: "10155763847"
-
+  repo: kaveri03
+  version: "10155658411"
   replicas: 1
   name: user
   label: user
