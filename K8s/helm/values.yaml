@@ -80,9 +80,8 @@ mongodb:
   port_name: mongo 
 
 mysql:
-#  repo: kaveri03
-#  version: "10155355595"
-
+  repo: kaveri03
+  version: "10155355595"
   replicas: 1
   name: mysql 
   label: mysql 
