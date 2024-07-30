@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.shipping.name }}
-        image: {{ .Values.image.repo }}/shipping:{{ .Values.image.version }}
+        image: {{ .Values.shipping.repo }}/shipping:{{ .Values.shipping.version }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: {{ .Values.shipping.port }}

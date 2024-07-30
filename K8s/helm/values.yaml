@@ -96,9 +96,8 @@ mysql:
   port_name: mysql 
 
 shipping: 
-#  repo: kaveri03
-#  version: "10155658411"
-
+  repo: kaveri03
+  version: "10155658411"
   replicas: 1
   name: shipping
   label: shipping
