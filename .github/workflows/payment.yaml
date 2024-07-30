@@ -63,7 +63,7 @@ jobs:
         run: |
           git config --global user.name "Saurabh Kaveri"
           git config --global user.email "kaverisaurabh1998@gmail.com"
-          sed -i 's/version: .*/version: "${{ github.run_id }}"/' K8s/helm/values.yaml
+          sed -i 's/payment_version: "[^"]*"/payment_version: "'${{ github.run_id }}'"/' K8s/helm/values.yaml
           git add K8s/helm/values.yaml
           git commit -m "Update the tags in values file"
           git push origin main

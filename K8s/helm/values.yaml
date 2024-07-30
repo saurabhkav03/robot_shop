@@ -22,7 +22,7 @@ nodeport: false
 
 payment:
   repo: kaveri03
-  version: "10155527715"
+  payment_version: "10155527715"
   # Alternative payment gateway URL
   # Default is https://www.paypal.com
   gateway: null
