@@ -1,10 +1,9 @@
 # Registry and repository for Docker images
 # Default is docker/robotshop/image:latest
 image:
-  repo: kaveri03
+#  repo: kaveri03
 
 #  version: latest
-  version: latest
   pullPolicy: IfNotPresent
 
 redis:
@@ -31,8 +30,8 @@ payment:
   #gateway: https://www.worldpay.com
 
 cart:
-#  repo: kaveri03
-#  version: latest
+  repo: kaveri03
+  version: latest
   replicas: 1
   name: cart
   label: cart 
