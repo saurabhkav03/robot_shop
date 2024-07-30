@@ -6,8 +6,8 @@ metadata:
     service: {{ .Values.shipping.label }}
 spec:
   ports:
-  - port: {{ .Values.shipping.port }}
-    targetPort: {{ .Values.shipping.port }}
+  - port: 8080
+    targetPort: 8080
     name: {{ .Values.shipping.port_name }}
   selector:
     service: {{ .Values.shipping.label }}
