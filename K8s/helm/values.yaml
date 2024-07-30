@@ -30,7 +30,7 @@ payment:
 
 cart:
   repo: kaveri03
-  cart_version: "10157864344"
+  cart_version: "10155212820"
   replicas: 1
   name: cart
   label: cart 
@@ -56,7 +56,7 @@ catalogue:
 
 ratings:
   repo: kaveri03
-  version: "10155658411"
+  ratings_version: "10155658411"
 
 dispatch:
   repo: kaveri03

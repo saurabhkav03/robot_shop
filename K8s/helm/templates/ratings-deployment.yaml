@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ratings
-        image: "{{ .Values.ratings.repo }}/ratings:{{ .Values.ratings.version }}"
+        image: "{{ .Values.ratings.repo }}/ratings:{{ .Values.ratings.ratings_version }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 80
