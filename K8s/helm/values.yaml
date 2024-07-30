@@ -111,7 +111,7 @@ shipping:
 
 user: 
   repo: kaveri03
-  user_version: "10157516572"
+  user_version: "10163890146"
   replicas: 1
   name: user
   label: user
