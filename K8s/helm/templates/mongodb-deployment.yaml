@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.mongodb.name }}
-        image: {{ .Values.mongodb.repo }}/mongo:{{ .Values.mongodb.version }}
+        image: {{ .Values.mongodb.repo }}/mongo:{{ .Values.mongodb.mongodb_version }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         # agent networking access usually useful for monitoring
         env:

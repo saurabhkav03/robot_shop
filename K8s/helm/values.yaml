@@ -71,7 +71,7 @@ dispatch:
 
 mongodb: 
   repo: kaveri03
-  version: "10155436866"
+  mongodb_version: "10155436866"
   replicas: 1
   name: mongodb
   label: mongodb 
@@ -84,7 +84,7 @@ mongodb:
 
 mysql:
   repo: kaveri03
-  version: "10155481545"
+  mysql_version: "10155481545"
   replicas: 1
   name: mysql 
   label: mysql 
