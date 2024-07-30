@@ -125,7 +125,7 @@ user:
 
 web:
   repo: kaveri03
-  web_version: "10155864655"
+  web_version: "10157449002"
   replicas: 1
   name: web
   label: web 
