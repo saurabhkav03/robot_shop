@@ -43,7 +43,7 @@ cart:
 
 catalogue: 
   repo: kaveri03
-  version: "10155280384"
+  catalogue_version: "10155280384"
   replicas: 1
   name: catalogue
   label: catalogue

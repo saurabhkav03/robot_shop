@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.catalogue.name }}
-        image: {{ .Values.catalogue.repo }}/catalogue:{{ .Values.catalogue.version }}
+        image: {{ .Values.catalogue.repo }}/catalogue:{{ .Values.catalogue.catalogue_version }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
           - name: INSTANA_AGENT_HOST
