@@ -97,7 +97,7 @@ mysql:
 
 shipping: 
   repo: kaveri03
-  version: "10155658411"
+  version: v1
   replicas: 1
   name: shipping
   label: shipping

@@ -50,7 +50,7 @@ jobs:
           context: .  # Build context is the root directory
           file: shipping/Dockerfile  # Path to the Dockerfile within the shipping directory
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/shipping:${{ github.run_id }}  Docker image tag with GitHub run ID
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/shipping:${{ github.run_id }}  #Docker image tag with GitHub run ID
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest  # Runs on Ubuntu latest version
