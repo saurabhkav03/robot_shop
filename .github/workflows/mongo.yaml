@@ -59,7 +59,7 @@ jobs:
           context: .
           file: mongo/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mongo:latest #${{ github.run_id }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mongo:${{ github.run_id }}
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest
@@ -74,8 +74,8 @@ jobs:
         run: |
           git config --global user.name "Saurabh Kaveri"
           git config --global user.email "kaverisaurabh1998@gmail.com"
-          sed -i 's/version: .*/version: latest/' K8s/helm/values.yaml
+          sed -i 's/version: .*/version: "${{ github.run_id }}"/' K8s/helm/values.yaml
           git add K8s/helm/values.yaml
           git commit -m "Update the tag values in values file"
           git push origin main
-#          sed -i 's/version: .*/version: "${{ github.run_id }}"/' K8s/helm/values.yaml
+

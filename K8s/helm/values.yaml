@@ -67,10 +67,8 @@ dispatch:
   memory_request: 50Mi
 
 mongodb: 
-
-#  repo: kaveri03
-#  version: "10155355595"
-
+  repo: kaveri03
+  version: "10155355595"
   replicas: 1
   name: mongodb
   label: mongodb 
