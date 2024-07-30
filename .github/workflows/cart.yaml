@@ -58,7 +58,7 @@ jobs:
           git config user.name "Saurabh Kaveri"
           git config user.email "kaverisaurabh1998@gmail.com"
           #Update the Docker image version in the Helm chart values file
-          sed -i 's/version: .*/version: "${{github.run_id}}"/' K8s/helm/values.yaml
+          sed -i 's/cart_version: "[^"]*"/cart_version: "'${{ github.run_id }}'"/' K8s/helm/values.yaml
           git add K8s/helm/values.yaml
           git commit -m "Updated the Docker image version in Helm chart"
           git push origin main # Ensure you push to the correct branch
