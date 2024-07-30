@@ -101,8 +101,8 @@ shipping:
   replicas: 1
   name: shipping
   label: shipping
-  port: 8080
-  path: /health
+#  port: 8080
+#  path: 
   cpu_limits: 200m 
   memory_limits: 1000Mi
   cpu_request: 100m 

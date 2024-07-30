@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
   name: {{ .Values.shipping.name }}
   labels:
     service: {{ .Values.shipping.label }}
@@ -22,11 +22,11 @@ spec:
         - containerPort: {{ .Values.shipping.port }}
         readinessProbe:
           httpGet:
-            path: {{ .Values.shipping.path }}
-            port: {{ .Values.shipping.port }}
-          initialDelaySeconds: 5
-          periodSeconds: 5
-          failureThreshold: 30
+            path: /health
+            port: 8080 
+          initialDelaySeconds: 30 # Increased to give more time for startup
+          periodSeconds: 10
+          failureThreshold: 3
           successThreshold: 1
         resources:
           limits:
@@ -35,4 +35,4 @@ spec:
           requests:
             cpu: {{ .Values.shipping.cpu_request }}
             memory: {{ .Values.shipping.memory_request }}
-
+      restartPolicy: Always

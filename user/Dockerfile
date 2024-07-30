@@ -11,7 +11,7 @@ COPY user/package.json /opt/server/
 
 RUN npm install 
 
-COPY . . 
+COPY user/server.js /opt/server/
 
 EXPOSE 8080
 
