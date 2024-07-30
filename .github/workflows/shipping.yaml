@@ -19,21 +19,10 @@ jobs:
     runs-on: ubuntu-latest  # Runs on the latest version of Ubuntu
 
     steps:
-      - name: Setup JAVA
-        run: |
-          sudo apt-get install openjdk-17-jdk  # Install OpenJDK 17
-          java -version  # Check Java version
-
       - name: Checkout repository
         uses: actions/checkout@v4  # Checkout the repository with full history
         with:
           fetch-depth: 0  # Fetch all history for accurate versioning
-
-      - name: Install dependencies
-        run: |
-          mvn dependency:resolve  # Resolve Maven dependencies
-          mvn package  # Package the application
-        working-directory: shipping  # Run Maven commands in the shipping directory
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3  # Set up Docker Buildx for multi-platform builds
@@ -50,7 +39,7 @@ jobs:
           context: .  # Build context is the root directory
           file: shipping/Dockerfile  # Path to the Dockerfile within the shipping directory
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/shipping:${{ github.run_id }}  #Docker image tag with GitHub run ID
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/shipping:${{ github.run_id }}  # Docker image tag with GitHub run ID
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest  # Runs on Ubuntu latest version
@@ -66,7 +55,7 @@ jobs:
         run: |
           git config --global user.name "Saurabh Kaveri"  # Set Git user name globally
           git config --global user.email "kaverisaurabh1998@gmail.com"  # Set Git user email globally
-          sed -i 's/shipping_version: "[^"]*"/shipping_version: "'${{ github.run_id }}'"/' K8s/helm/values.yaml # Update version in Helm values.yaml using GitHub run ID
+          sed -i 's/shipping_version: "[^"]*"/shipping_version: "'${{ github.run_id }}'"/' K8s/helm/values.yaml  # Update version in Helm values.yaml using GitHub run ID
           git add K8s/helm/values.yaml  # Stage changes to values.yaml
           git commit -m "Update the values file"  # Commit changes
           git push origin main  # Push changes to the main branch
