@@ -56,9 +56,14 @@ catalogue:
   port_name: http 
 
 dispatch:
+<<<<<<< Updated upstream
 #  repo: kaveri03
 #  version: "{{ github.run_id }}"
 
+=======
+  repo: kaveri03
+  version: "10155212820"
+>>>>>>> Stashed changes
   replicas: 1
   name: dispatch 
   label: dispatch
