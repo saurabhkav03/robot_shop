@@ -71,7 +71,7 @@ jobs:
         run: |
           git config --global user.name "Saurabh Kaveri" 
           git config --global user.email "kaverisaurabh1998@gmail.com"
-          awk -i inplace '/web\/version:/ {gsub(/"[^"]*"/, "\"" "${{ github.run_id }}" "\"")}1' K8s/helm/values.yaml
+          sed -i 's/web_version: "[^"]*"/web_version: "'${{ github.run_id }}'"/' K8s/helm/values.yaml
           git add K8s/helm/values.yaml
           git commit -m "Update tags in values yaml"
           git push origin main
