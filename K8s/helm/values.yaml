@@ -60,7 +60,7 @@ ratings:
 
 dispatch:
   repo: kaveri03
-  dispatch_version: "10155355595"
+  dispatch_version: "10157785679"
   replicas: 1
   name: dispatch 
   label: dispatch
