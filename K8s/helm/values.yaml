@@ -3,7 +3,7 @@
 image:
 #  repo: kaveri03
 
-#  version: "{{ github.run_id }}"
+#  version: "10155841009"
   pullPolicy: IfNotPresent
 
 redis:
@@ -22,7 +22,7 @@ nodeport: false
 
 payment:
   repo: kaveri03
-  version: "{{ github.run_id }}"
+  version: "10155841009"
   # Alternative payment gateway URL
   # Default is https://www.paypal.com
   gateway: null
@@ -30,7 +30,7 @@ payment:
 
 cart:
   repo: kaveri03
-  version: "{{ github.run_id }}"
+  version: "10155841009"
   replicas: 1
   name: cart
   label: cart 
@@ -43,7 +43,7 @@ cart:
 
 catalogue: 
   repo: kaveri03
-  version: "{{ github.run_id }}"
+  version: "10155841009"
   replicas: 1
   name: catalogue
   label: catalogue
@@ -56,11 +56,11 @@ catalogue:
 
 ratings:
   repo: kaveri03
-  version: "{{ github.run_id }}"
+  version: "10155841009"
 
 dispatch:
   repo: kaveri03
-  version: "{{ github.run_id }}"
+  version: "10155841009"
   replicas: 1
   name: dispatch 
   label: dispatch
@@ -71,7 +71,7 @@ dispatch:
 
 mongodb: 
   repo: kaveri03
-  version: "{{ github.run_id }}"
+  version: "10155841009"
   replicas: 1
   name: mongodb
   label: mongodb 
@@ -84,7 +84,7 @@ mongodb:
 
 mysql:
   repo: kaveri03
-  version: "{{ github.run_id }}"
+  version: "10155841009"
   replicas: 1
   name: mysql 
   label: mysql 
@@ -97,7 +97,7 @@ mysql:
 
 shipping: 
   repo: kaveri03
-  version: "{{ github.run_id }}"
+  version: "10155841009"
   replicas: 1
   name: shipping
   label: shipping
@@ -111,7 +111,7 @@ shipping:
 
 user: 
   repo: kaveri03
-  version: "{{ github.run_id }}"
+  version: "10155841009"
   replicas: 1
   name: user
   label: user
@@ -125,7 +125,7 @@ user:
 
 web:
 #  repo: kaveri03
-#  version: "{{ github.run_id }}"
+#  version: "10155841009"
 
   replicas: 1
   name: web
