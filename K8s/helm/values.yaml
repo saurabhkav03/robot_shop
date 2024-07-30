@@ -54,6 +54,10 @@ catalogue:
   memory_request: 50Mi
   port_name: http 
 
+ratings:
+  repo: kaveri03
+  version: v1
+
 dispatch:
   repo: kaveri03
   version: "10155527715"
