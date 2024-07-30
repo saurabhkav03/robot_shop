@@ -84,7 +84,7 @@ mongodb:
 
 mysql:
   repo: kaveri03
-  mysql_version: "10155481545"
+  mysql_version: "10157698459"
   replicas: 1
   name: mysql 
   label: mysql 
