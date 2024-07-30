@@ -23,9 +23,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install Dependencies
-        run: npm install
-        working-directory: user
        
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -61,4 +58,3 @@ jobs:
           git add K8s/helm/values.yaml
           git commit -m "Update the tag values in values file"
           git push origin main
-#test
