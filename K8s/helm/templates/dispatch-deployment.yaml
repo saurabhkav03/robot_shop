@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.dispatch.name }}
-        image: {{ .Values.dispatch.repo }}/dispatch:{{ .Values.dispatch.version }}
+        image: {{ .Values.dispatch.repo }}/dispatch:{{ .Values.dispatch.dispatch_version }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}        
         env:
           - name: INSTANA_AGENT_HOST
