@@ -19,7 +19,7 @@ spec:
         image: {{ .Values.shipping.repo }}/shipping:{{ .Values.shipping.shipping_version }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - containerPort: {{ .Values.shipping.port }}
+        - containerPort: 8080
         readinessProbe:
           httpGet:
             path: /health
