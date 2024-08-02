@@ -1,18 +1,16 @@
-ARG NODE_VERSION=22.4
-
-FROM node:${NODE_VERSION}-alpine 
+FROM node:14
 
 #ENV NODE_ENV production
 ENV INSTANA_AUTO_PROFILE true
 
 WORKDIR /opt/server
 
-COPY package.json /opt/server/
+COPY user/package.json /opt/server/
 
 
 RUN npm install 
 
-COPY server.js /opt/server/
+COPY user/server.js /opt/server/
 
 EXPOSE 8080
 
